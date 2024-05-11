@@ -86,7 +86,7 @@ class SmartFaceCamera extends StatefulWidget {
   final FaceDetectorMode performanceMode;
 
   const SmartFaceCamera(
-      {this.imageResolution = ImageResolution.medium,
+      {this.imageResolution = ImageResolution.max,
       this.defaultCameraLens,
       this.enableAudio = true,
       this.autoCapture = false,
@@ -255,16 +255,17 @@ class _SmartFaceCameraState extends State<SmartFaceCamera>
         if (cameraController != null &&
             cameraController.value.isInitialized) ...[
           Transform.scale(
-            scale: 1.0,
-            child: AspectRatio(
-              aspectRatio: size.aspectRatio,
+            scale: 1,
+            child: SizedBox(
+              width: size.width,
+              height: size.width*2, 
               child: OverflowBox(
                 alignment: Alignment.center,
                 child: FittedBox(
-                  fit: BoxFit.fitHeight,
+                  fit: BoxFit.fitWidth,
                   child: SizedBox(
                     width: size.width,
-                    height: size.width * cameraController.value.aspectRatio,
+                    height: 400,
                     child: Stack(
                       fit: StackFit.expand,
                       children: <Widget>[
