@@ -256,6 +256,8 @@ class _SmartFaceCameraState extends State<SmartFaceCamera>
             cameraController.value.isInitialized) ...[
           Transform.scale(
             scale: 1,
+            child:  Padding(
+      padding: EdgeInsets.all(16.0),
             child: SizedBox(
               width: size.width,
               height: size.width*2, 
@@ -264,8 +266,8 @@ class _SmartFaceCameraState extends State<SmartFaceCamera>
                 child: FittedBox(
                   fit: BoxFit.fitWidth,
                   child: SizedBox(
-                    width: size.width,
-                    height: 400,
+                    width: size.width -80,
+                    height: 300,
                     child: Stack(
                       fit: StackFit.expand,
                       children: <Widget>[
@@ -301,6 +303,7 @@ class _SmartFaceCameraState extends State<SmartFaceCamera>
                   ),
                 ),
               ),
+            ),
             ),
           )
         ] else ...[
